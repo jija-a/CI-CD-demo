@@ -86,7 +86,7 @@ public class GlobalRestExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler({MethodArgumentTypeMismatchException.class})
     public ResponseEntity<Object> handleMethodArgumentTypeMismatch(MethodArgumentTypeMismatchException ex) {
         log.warn("Method argument type mismatch, ", ex);
-        String error = ex.getName() + " should be of type " + ex.getRequiredType().getName();
+        String error = ex.getName() + " should be of type " + ex.getRequiredType();
 
         HttpStatus status = HttpStatus.BAD_REQUEST;
         ApiError apiError = new ApiError(new Date(), status.value(), status.name(), ex.getLocalizedMessage(), error);
@@ -109,12 +109,7 @@ public class GlobalRestExceptionHandler extends ResponseEntityExceptionHandler {
                                                                          HttpStatus status,
                                                                          WebRequest request) {
         log.warn("Request method not supported, ", ex);
-        StringBuilder builder = new StringBuilder();
-        builder.append(ex.getMethod());
-        builder.append(" method is not supported for this request. Supported methods are ");
-        ex.getSupportedHttpMethods().forEach(t -> builder.append(t).append(" "));
-
-        String error = builder.toString();
+        String error = ex.getMethod();
         ApiError apiError = new ApiError(new Date(), status.value(), status.name(), ex.getLocalizedMessage(), error);
         return new ResponseEntity<>(apiError, new HttpHeaders(), status);
     }
