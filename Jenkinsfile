@@ -34,9 +34,9 @@ pipeline {
             steps {
                 echo 'Deploying...'
                 sh 'ls'
-                dir('build/libs') {
+                dir('web/build/libs') {
                     script {
-                        deploy adapters: [tomcat9(credentialsId: 'tomcat-deployer', path: '', url: 'http://localhost:8080')], contextPath: '/app', onFailure: false, war: 'rest-api-advanced-0.0.1-SNAPSHOT.war'
+                        deploy adapters: [tomcat9(credentialsId: 'tomcat-deployer', path: '', url: 'http://localhost:8080')], contextPath: '/app', onFailure: false, war: 'web-0.0.1-SNAPSHOT-plain.war'
                     }
                 }
             }
