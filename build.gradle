@@ -29,6 +29,7 @@ subprojects {
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'jacoco'
     apply plugin: 'org.sonarqube'
+    apply plugin: 'war'
 
     repositories {
         mavenCentral()
@@ -69,5 +70,13 @@ subprojects {
         reports {
             xml.enabled true
         }
+    }
+
+    bootJar {
+        enabled(false)
+    }
+
+    jar {
+        enabled(true)
     }
 }
