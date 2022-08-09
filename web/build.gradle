@@ -4,19 +4,3 @@ dependencies {
     implementation project(':model')
     implementation project(':service')
 }
-
-tasks.named('test') {
-    finalizedBy jacocoTestReport
-}
-
-sonarqube {
-    properties {
-        property 'sonar.host.url', 'http://localhost:9000'
-    }
-}
-
-jacocoTestReport {
-    reports {
-        xml.enabled true
-    }
-}
