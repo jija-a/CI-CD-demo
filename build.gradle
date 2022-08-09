@@ -49,6 +49,14 @@ subprojects {
         }
     }
 
+    war {
+        enabled = true
+    }
+
+    bootWar {
+        enabled = false
+    }
+
     dependencies {
         // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent
         implementation 'org.springframework.boot:spring-boot-starter-parent:2.7.2'
