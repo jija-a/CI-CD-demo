@@ -18,18 +18,10 @@ pipeline {
             }
         }
 
-        stage('Packaging') {
-            steps {
-                withSonarQubeEnv(installationName: 'sq1', credentialsId: 'sonarqube-secret') {
-                    sh './gradlew war'
-                }
-            }
-        }
-
         stage ('Deploy') {
             steps {
                 script {
-                    deploy adapters: [tomcat9(credentialsId: 'tomcat-deployer', path: '', url: 'http://localhost:8080')], contextPath: '/certificates', onFailure: false, war: '**/*.war'
+                    deploy adapters: [tomcat9(credentialsId: 'tomcat-deployer', path: '', url: 'http://localhost:8080')], contextPath: '/certificates', onFailure: false, war: 'web/build/libs/*.war'
                 }
             }
         }

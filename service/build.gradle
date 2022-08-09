@@ -1,8 +1,8 @@
-bootWar {
+bootJar {
     enabled(false)
 }
 
-war {
+jar {
     enabled(true)
 }
 
