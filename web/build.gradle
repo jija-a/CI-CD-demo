@@ -2,7 +2,3 @@ dependencies {
     implementation project(':model')
     implementation project(':service')
 }
-
-configurations {
-    all*.exclude module: 'spring-boot-starter-logging'
-}

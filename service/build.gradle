@@ -1,51 +1,19 @@
-plugins {
-    id 'maven-publish'
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-            pom {
-                name = 'model-0.0.1-SNAPSHOT'
-                description = 'Model lib'
-            }
-        }
-    }
-}
-
-configurations {
-    all*.exclude module: 'spring-boot-starter-logging'
-    all*.exclude module: 'spring-boot-starter-tomcat'
-}
-
-jar {
-    duplicatesStrategy 'INCLUDE'
-    from {
-        duplicatesStrategy = 'INCLUDE'
-        configurations.runtimeClasspath.collect {
-            it.directory ? it : zipTree(it)
-        }
-    }
-}
-
 dependencies {
     implementation project(':model')
 }
 
-bootWar {
-    enabled = false
-}
-
-war {
-    enabled = false
+jar {
+    enabled(true)
 }
 
 bootJar {
-    enabled = false
+    enabled(false)
 }
 
-jar {
-    enabled = true
+war {
+    enabled(false)
 }
 
+bootWar {
+    enabled(false)
+}
