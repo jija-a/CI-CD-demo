@@ -1,11 +1,11 @@
+bootWar {
+    enabled(false)
+}
+
+war {
+    enabled(true)
+}
+
 dependencies {
     implementation project(':model')
-}
-
-bootJar {
-    enabled = false
-}
-
-jar {
-    enabled = true
 }
