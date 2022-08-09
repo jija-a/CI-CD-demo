@@ -24,6 +24,12 @@ pipeline {
             }
         }
 
+        stage('Package') {
+            steps {
+                sh './gradlew war'
+            }
+        }
+
         stage ('Deploy') {
             steps {
                 echo 'Deploing...'
