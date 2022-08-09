@@ -32,11 +32,11 @@ pipeline {
 
         stage ('Deploy') {
             steps {
-                echo 'Deploing...'
+                echo 'Deploying...'
                 sh 'ls'
                 dir('build/libs') {
                     script {
-                        deploy adapters: [tomcat9(credentialsId: 'tomcat-deployer', path: '', url: 'http://localhost:8080')], contextPath: '/certificates', onFailure: false, war: 'rest-api-advanced-0.0.1-SNAPSHOT.war'
+                        deploy adapters: [tomcat9(credentialsId: 'tomcat-deployer', path: '', url: 'http://localhost:8080')], contextPath: '/app', onFailure: false, war: 'rest-api-advanced-0.0.1-SNAPSHOT.war'
                     }
                 }
             }
