@@ -25,6 +25,7 @@ import java.util.Set;
 @Table(name = "certificates")
 @Getter
 @Setter
+@Builder
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor

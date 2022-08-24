@@ -67,6 +67,7 @@ subprojects {
         implementation 'org.springframework.boot:spring-boot-starter-web'
         providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
         implementation 'org.springframework.boot:spring-boot-starter-security'
+        testImplementation 'org.assertj:assertj-core'
         compileOnly 'org.projectlombok:lombok'
         developmentOnly 'org.springframework.boot:spring-boot-devtools'
         // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt

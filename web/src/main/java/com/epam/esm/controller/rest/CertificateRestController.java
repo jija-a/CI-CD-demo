@@ -29,7 +29,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Slf4j
 @RestController
-@RequestMapping("/certificates")
+@RequestMapping("/api/v1/certificates")
 @AllArgsConstructor
 public class CertificateRestController {
 
